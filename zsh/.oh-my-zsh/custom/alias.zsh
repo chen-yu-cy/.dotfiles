@@ -1,5 +1,6 @@
 # shortcuts
 alias lg="lazygit"
+alias ld="lazydocker"
 alias zshrc='vim ~/.zshrc'
 alias typora="open -a typora"
 alias c="lfcd"
