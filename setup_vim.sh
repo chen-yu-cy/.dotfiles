@@ -1,7 +1,7 @@
 #!/bin/sh
 
 VIM_RUNTIME=~/.vim_runtime
-DOTFILES=$(pwd)
+DOTFILES=$HOME/.dotfiles
 
 if [ ! -d "$VIM_RUNTIME" ] ; then
    echo "amix vimrc not found, clone the repo"
