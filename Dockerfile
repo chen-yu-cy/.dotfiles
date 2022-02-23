@@ -1,14 +1,21 @@
 FROM alpine:latest
-RUN apk add --no-cache git stow vim zsh curl
+RUN apk add --no-cache git stow vim zsh curl ripgrep bat bash fzf ranger
+
+# copy current dir to ~/.dotfiles
+WORKDIR /root
+RUN mkdir -p .dotfiles
+COPY . .dotfiles/
 
 # install oh-my-zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# setup vim
-RUN git clone https://github.com/chen-yu-cy/.dotfiles.git ~/.dotfiles && ~/.dotfiles/setup_vim.sh
-
+WORKDIR /root/.dotfiles
 # setup zsh
-RUN ~/.dotfiles/setup_zsh.sh
+RUN ./setup_zsh.sh
+# setup vim
+RUN ./setup_vim.sh
 
+
+WORKDIR /root
 ENTRYPOINT ["/bin/zsh"]
 

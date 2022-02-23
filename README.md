@@ -14,5 +14,10 @@ git clone https://github.com/chen-yu-cy/.dotfiles.git ~/.dotfiles && ~/.dotfiles
 ## run with docker
 
 ```bash
-docker run -it chenyu96/linux-playground
+docker run -it --pull always --rm chenyu96/linux-playground
+```
+
+## install fd
+```bash
+https://github.com/sharkdp/fd#installation
 ```
