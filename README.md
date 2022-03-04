@@ -21,3 +21,16 @@ docker run -it --pull always --rm chenyu96/linux-playground
 ```bash
 https://github.com/sharkdp/fd#installation
 ```
+
+
+
+## Useful Linux tools
+
+* lazygit
+* lf/ranger
+* autojump
+* fzf
+* fd
+* ack/ag/rg
+* stow
+* [delta](https://github.com/dandavison/delta)

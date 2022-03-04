@@ -30,6 +30,9 @@ map <leader>g :!lazygit<cr>
 "some ideas
 "f key case insensive settings
 
+noremap <leader>wq :wq<cr>
+noremap <leader>q :q<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Normal Mode Navigations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,6 +110,9 @@ set stal=1
 "show line number
 set relativenumber
 set number
+
+"disable auto insert a comment leader after hitting 'o'
+autocmd BufNewFile,BufRead * setlocal formatoptions-=o
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mode

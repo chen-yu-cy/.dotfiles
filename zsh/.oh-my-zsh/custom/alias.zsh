@@ -15,3 +15,4 @@ alias zshdotfiles="cd $HOME/.dotfiles/zsh/.oh-my-zsh/custom"
 if which bat &> /dev/null; then
     alias cat="bat"
 fi
+
