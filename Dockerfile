@@ -17,5 +17,5 @@ RUN ./setup_vim.sh
 
 
 WORKDIR /root
-ENTRYPOINT ["/bin/zsh"]
+ENTRYPOINT ["/bin/zsh", "-c", "echo 'Welome to my linux playground!'"]
 
