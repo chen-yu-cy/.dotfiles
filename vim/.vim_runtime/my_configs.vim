@@ -121,8 +121,8 @@ set relativenumber
 "disable auto insert a comment leader after hitting 'o'
 autocmd BufNewFile,BufRead * setlocal formatoptions-=o
 
-autocmd InsertEnter * set cul "set the hightlight when entering"
-autocmd InsertLeave * set nocul "disable the highlight when exiting"
+"autocmd InsertEnter * set cul "set the hightlight when entering"
+"autocmd InsertLeave * set nocul "disable the highlight when exiting"
 " Set the cursor type when entering and leaving Insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
