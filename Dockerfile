@@ -1,5 +1,5 @@
 FROM alpine:latest
-RUN apk add --no-cache git stow vim zsh curl ripgrep bat bash fzf ranger
+RUN apk add --no-cache git stow vim zsh curl ripgrep bat bash fzf ranger neovim
 
 # copy current dir to ~/.dotfiles
 WORKDIR /root

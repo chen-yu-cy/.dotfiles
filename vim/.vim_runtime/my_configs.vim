@@ -32,6 +32,9 @@ noremap <leader>q :q<cr>
 nnoremap [[ [m
 nnoremap ]] ]m
 
+"copy the content into system clipboard
+map <leader>y "+y
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Normal Mode Navigations
 " nnoremap stands for normal mode no-remap

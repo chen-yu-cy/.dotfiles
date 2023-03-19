@@ -1,7 +1,7 @@
 # shortcuts
 alias s="cat"
 alias c="lfcd"
-alias v="vim"
+alias v="nvim"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias zshrc='vim ~/.zshrc'
