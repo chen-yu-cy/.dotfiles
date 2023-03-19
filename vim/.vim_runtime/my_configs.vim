@@ -6,17 +6,12 @@ nmap q <Nop>
 "map enter with :
 nnoremap <Enter> :
 "set H to vertical help
-cnoreabbrev H vert h
-"set H to vertical help
-cnoreabbrev H vert h
-nnoremap <tab> %
-vnoremap <tab> %
-noremap - $
 "automaticially open my_configs file
 "nnoremap <leader>ev <C-W><C-V><C-L>:e $HOME/.vim_runtime/my_configs.vim<cr>
 nnoremap <leader>ev :e $HOME/.vim_runtime/my_configs.vim<cr>
 "auto load my_configs.vim when save
-autocmd! bufwritepost ~/.vim_runtime/my_configs.vim source ~/.vimrc
+autocmd! bufwritepost ~/.vim_runtime/my_configs.vim mapclear | source ~/.vimrc
+autocmd! bufwritepost ~/.dotfiles/vim/.vim_runtime/my_configs.vim mapclear | source ~/.vimrc
 "map last edited buffer
 nmap <leader><tab> :b#<cr>
 " <leader>+" surround a word with parethesis
@@ -33,17 +28,31 @@ map <leader>g :!lazygit<cr>
 noremap <leader>wq :wq<cr>
 noremap <leader>q :q<cr>
 
+" when editing in java, map [m to [[, and ]m to ]]
+nnoremap [[ [m
+nnoremap ]] ]m
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Normal Mode Navigations
+" nnoremap stands for normal mode no-remap
+" noremap stands for no-remap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>. <c-t>
-nnoremap <leader>/ <c-]>
+"jumplist back
+nnoremap <leader>. <c-o>
+"jumplist new
+nnoremap <leader>/ <c-i>
+
 "map U to redo
 nnoremap U <c-r>
+
+"move to the end of line
+noremap - $
+noremap 9 $
 
 "Disable join lines , map it to move down visually
 nmap J <c-d>
 nmap K <C-U>
+
 "Disable join lines , map it to move down visually
 nmap <s-j> <c-d>
 nmap <s-k> <c-u>
@@ -51,28 +60,24 @@ nmap <leader>j <c-d>
 nmap <leader>k <c-u>
 
 "Disable arror key for training Vim key bindings
-noremap <Up> <Nop>
-noremap <Down> <Nop>
+nmap <Up> <c-u>
+nmap <Down> <c-d>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 "remap jump in and jump out: ctrl-t and ctrl-]
 nnoremap <c-a> <c-t>
-nnoremap <c-space> <c-]>
-nnoremap <leader>. <c-t>
-nnoremap <leader>/ <c-]>
+noremap <c-space> <c-]>
 nnoremap <leader>[ <c-t>
 nnoremap <leader>] <c-]>
 
-"jump in and out
-nnoremap <leader>' <c-I>
-nnoremap <leader>; <c-O>
-
+" yank the full path of the current file into the default @ register
 nmap cp :let @" = expand("%:p")<cr>
+nmap ,p  "0p
+nmap <c-v>  "0p
 
-"Using shift and a direction to change tabs
-noremap <S-l> gt
-noremap <S-h> gT
+"Open Buffer list and type the id to open the buffer
+:nnoremap <c-e> :buffers<CR>:buffer<Space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Personal Extra Settings
@@ -109,15 +114,21 @@ set stal=1
 
 "show line number
 set relativenumber
-set number
 
 "disable auto insert a comment leader after hitting 'o'
 autocmd BufNewFile,BufRead * setlocal formatoptions-=o
+
+autocmd InsertEnter * set cul "set the hightlight when entering"
+autocmd InsertLeave * set nocul "disable the highlight when exiting"
+" Set the cursor type when entering and leaving Insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Insert mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <c-f> <c-r>=expand("%:p")<cr>
+inoremap <c-v> <c-r>=@*<cr>
 inoremap II <Esc>I
 inoremap AA <Esc>A
 inoremap OO <Esc>O
@@ -144,6 +155,8 @@ cnoremap <C-l> <Right>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins option
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"BufExploer sort option
+let g:bufExplorerSortBy='number'     
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTREE Related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
